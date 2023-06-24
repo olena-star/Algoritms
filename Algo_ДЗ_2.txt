@@ -1,0 +1,18 @@
+1 Имея два отсортированных массива размера m и n соответственно,
+ вам нужно найти элемент,
+ который будет находиться на k-й позиции в конечном отсортированном массиве.
+
+
+let array1 = [100, 112, 256, 349, 770];
+let array2 = [72, 86, 113, 119, 265, 445, 892];
+let k = 7;
+
+
+let mergedArray = array1.concat(array2).sort(function(a, b) {
+  return a - b;
+});
+
+
+let element = mergedArray[k - 1];
+
+console.log(element); 
