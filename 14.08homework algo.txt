@@ -1,0 +1,30 @@
+14.08 homework
+
+реализация функции maxActivities
+
+
+function maxActivities(activities) {
+   
+    activities.sort((a, b) => a[1] - b[1]);
+    
+    const selectedActivities = [];
+    let prevActivityEnd = Number.NEGATIVE_INFINITY;
+    
+    for (let i = 0; i < activities.length; i++) {
+        const [start, end] = activities[i];
+        if (start >= prevActivityEnd) {
+            selectedActivities.push(i);
+            prevActivityEnd = end;
+        }
+    }
+    
+    return selectedActivities;
+}
+
+
+const activities = [
+    [1, 4], [3, 5], [0, 6], [5, 7], 
+    [3, 8], [5, 9], [6, 10], [8, 11]
+];
+const result = maxActivities(activities);
+console.log(result); // Вывод: [0, 3, 7]
